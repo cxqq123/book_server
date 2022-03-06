@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.book_server.dao.BookDao">
+    <resultMap id="result" type="com.cx.book_server.domain.Book">
+        <result property="bookId" column="book_id"/>
+        <result property="bookEName" column="book_ename"/>
+        <result property="bookCName" column="book_cname"/>
+        <result property="bookQuantity" column="book_quantity"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+    </resultMap>
+
+    <select id="queryAllBooks" resultMap="result">
+        select * from book;
+    </select>
+
+    <select id="queryBooksById" resultMap="result">
+        select * from book where book_id=#{bookId};
+    </select>
+
+    <insert id="insertBook" parameterType="com.cx.book_server.domain.Book"
+            keyProperty="book_id" useGeneratedKeys="true">
+        insert into book (book_id, book_ename, book_cname, book_quantity,start_time,end_time)
+        values (#{bookId}, #{bookEName}, #{bookCName},#{bookQuantity},#{startTime},#{endTime});
+    </insert>
+
+    <update id="updateBook" parameterType="com.cx.book_server.domain.Book">
+        update book set book.book_ename=#{bookEName}, book.book_cname=#{bookCName},
+        book.book_quantity=#{bookQuantity}, book.start_time=#{startTime}, book.end_time=#{endTime}
+        where book.book_id=#{bookId};
+    </update>
+
+    <delete id="deleteBook" parameterType="int">
+        delete from book where book_id=#{bookId};
+    </delete>
+</mapper>
