@@ -33,4 +33,8 @@ public class BookService {
     public int deleteBook(int bookId) {
         return bookDao.deleteBook(bookId);
     }
+
+    public void test() {
+
+    }
 }
