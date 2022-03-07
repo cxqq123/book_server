@@ -21,7 +21,7 @@
     <insert id="insertBook" parameterType="com.cx.book_server.domain.Book"
             keyProperty="book_id" useGeneratedKeys="true">
         insert into book (book_id, book_ename, book_cname, book_quantity,start_time,end_time)
-        values (#{bookId}, #{bookEName}, #{bookCName},#{bookQuantity},#{startTime},#{endTime});
+        values (#{bookId},#{bookEName}, #{bookCName},#{bookQuantity},#{startTime},#{endTime});
     </insert>
 
     <update id="updateBook" parameterType="com.cx.book_server.domain.Book">

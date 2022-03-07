@@ -37,7 +37,7 @@ public class BookController {
         return bookService.updateBook(book);
     }
 
-    @RequestMapping(value = "deleteBook", method = RequestMethod.DELETE)
+    @RequestMapping(value = "deleteBook", method = RequestMethod.GET)
     public int deleteBook(int bookId) {
         return bookService.deleteBook(bookId);
     }
